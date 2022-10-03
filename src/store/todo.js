@@ -1,4 +1,5 @@
 import axios from "axios";
+import notification from "../helper/notification";
 axios.defaults.baseURL = "http://127.0.0.1:8000/api/v1/todos/";
 export default {
     namespaced: true,
@@ -85,8 +86,9 @@ export default {
                     .then(({data}) => {
                         commit("CREATE_NEW_TODO", data.data)
                         commit("SET_TITLE", '')
+                        notification.successNotification("New task added to Todo list")
                     }).catch((error) => {
-                    console.log(error)
+                    notification.errorNotification('Oppas Something Went Wrong')
                 })
 
             } catch (error) {
