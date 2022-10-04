@@ -85,7 +85,7 @@ export default {
                 })
                     .then(({data}) => {
                         commit("CREATE_NEW_TODO", data.data)
-                        commit("SET_TITLE", '')
+                        commit("SET_TITLE", null)
                         notification.successNotification("New task added to Todo list")
                     }).catch((error) => {
                     notification.errorNotification('Oppas Something Went Wrong')
